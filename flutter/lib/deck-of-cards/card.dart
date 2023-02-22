@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 
 enum Suit { clubs, diamonds, hearts, spades }
 
-class PlayingCard extends StatelessWidget {
+abstract class AbstractCard extends StatelessWidget {
+  const AbstractCard({super.key});
+}
+
+class PlayingCard extends AbstractCard {
   const PlayingCard({super.key, required this.suit, required this.value})
       : assert(value > 0 && value < 14);
 
@@ -32,5 +36,14 @@ class PlayingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset('assets/cards/${valueAssetKey}_of_${suit.name}.png');
+  }
+}
+
+class EmptyCard extends AbstractCard {
+  const EmptyCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset('assets/cards/red_joker.png');
   }
 }
