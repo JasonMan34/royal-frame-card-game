@@ -3,9 +3,6 @@ import 'dart:math';
 import 'package:app/card.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 class PlayingBoard extends StatefulWidget {
   const PlayingBoard({super.key});
 
@@ -32,15 +29,63 @@ class _PlayingBoardState extends State<PlayingBoard> {
       return rng.nextInt(13) + 1;
     }
 
-    return GridView.count(
-      crossAxisCount: 4,
-      shrinkWrap: true,
-      children: List.generate(16, (index) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 8, bottom: 8),
-          child: PlayingCard(suit: getRandomSuit(), value: getRandomInt()),
-        );
-      }),
+    return Row(
+      children: [
+        Expanded(
+          flex: 2,
+          child: Column(children: const [Text("Hey, this is a test")]),
+        ),
+        Expanded(
+            flex: 8,
+            child: Column(
+              children: [
+                Row(
+                  children: const [
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey")))
+                  ],
+                ),
+                Row(
+                  children: const [
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey")))
+                  ],
+                ),
+                Row(
+                  children: const [
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey")))
+                  ],
+                ),
+                Row(
+                  children: const [
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey"))),
+                    Expanded(flex: 1, child: Center(child: Text("hey")))
+                  ],
+                ),
+              ],
+            )
+            // child: GridView.count(
+            //   crossAxisCount: 4,
+            //   shrinkWrap: true,
+            //   children: List.generate(16, (index) {
+            //     return Padding(
+            //       padding: const EdgeInsets.only(top: 16),
+            //       child:
+            //           PlayingCard(suit: getRandomSuit(), value: getRandomInt()),
+            //     );
+            //   }),
+            // )
+            ),
+      ],
     );
   }
 }
